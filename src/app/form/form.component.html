@@ -1,0 +1,30 @@
+<div class="translate-wrapper">
+  <div class="translate-wrapper__title"><h2>Переводчик</h2></div>
+  <form #formTranslate="ngForm" novalidate (ngSubmit)="onSubmit(formTranslate)" class="translate-wrapper__form-translate">
+    <div class="form-group">
+      <label>Русский</label>
+      <input
+        class="form-control"
+        [disabled]="disableRu"
+        placeholder="Русский"
+        name="ru"
+        ngModel
+        (ngModelChange)="onChangeInputRU(formTranslate)"
+      />
+    </div>
+    <div class="form-group">
+      <label>English</label>
+      <input
+        class="form-control"
+        [disabled]="disableEn"
+        placeholder="English"
+        name="en"
+        ngModel
+        (ngModelChange)="onChangeInputEN(formTranslate)"
+      />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn">Перевести</button>
+    </div>
+  </form>
+</div>
