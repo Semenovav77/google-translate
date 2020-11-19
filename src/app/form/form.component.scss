@@ -31,6 +31,9 @@
         font-size: 16px;
         margin-left: 30px;
 
+        &:disabled{
+          opacity: 0.5;
+        }
         &:focus {
           outline: none;
           border-color: $darkblue-color;
@@ -54,7 +57,11 @@
       @include border-radius;
       transition: background .3s cubic-bezier(.645, .045, .355, 1);
 
-      &:hover {
+      &:disabled{
+        background: $lightgrey-color;
+      }
+
+      &:hover:not(:disabled) {
         background: #3273dcb0;
       }
     }

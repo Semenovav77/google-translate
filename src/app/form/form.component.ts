@@ -51,10 +51,12 @@ export class FormComponent implements OnInit {
     if ((form.controls['ru'].value !== '') || (form.controls['en'].value !== ''))
       {
         this.translateService.getTranslate(params).subscribe(res => {
-          (this.translateTarget === 'en') ?
-            form.controls['en'].setValue(res[0][0][0])
-            : form.controls['ru'].setValue(res[0][0][0]);
-        })
+          (res[0][0][0]) && (
+            (this.translateTarget === 'en') ?
+              form.controls['en'].setValue(res[0][0][0])
+              : form.controls['ru'].setValue(res[0][0][0])
+          )
+        }, err => console.error('TranslateService:', err ))
       }
   }
 
